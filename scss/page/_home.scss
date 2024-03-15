@@ -1,0 +1,370 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "../component" as *;
+@use "../layout" as *;
+@use "../vendor" as *;
+
+
+.main__wrapper{
+    width:95%;
+    margin: 0 auto;
+    .container{
+        max-width: 160rem;
+        margin: 0 auto;
+    }
+
+
+.header{
+    &__wrapper{
+        background-color: transparent;
+        @include flex (space-between,center);
+        
+        img{
+            @include imgCover(10rem, 10rem);
+        }
+        .toggle__button{
+            display: block;
+            z-index: 999;
+            transition: .5 ease;
+            @include mediaQuery{
+                display: none;
+            }
+            
+            span{
+                display: block;
+                background-color: $clr--light;
+                width: 3rem;
+                height: .5rem;
+                border-radius: 1rem;
+                &:nth-child(2){
+                    margin: .5rem 0;
+                }
+            }
+           
+        }
+        
+    }
+        nav{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            
+            
+            ul{
+               display: none;
+               li{
+                &::before{
+                        content: "";
+                        position: absolute;
+                        bottom: 50%;
+                        left: 0;
+                        height: 3px;
+                        width: 0%;
+                        background-color: $clr--accent;
+                        transition: .5s ease;
+
+                    }
+                    &:hover::before{
+                        width: 100%;
+                    }
+               }
+                @include mediaQuery{
+                    @include flex(end,center);
+                    gap: 2rem;
+                    margin: 4rem 14rem;
+                    text-transform: uppercase;
+                    
+                }
+            }            
+        }   
+} 
+
+.banner{
+    
+    &__wrapper{
+        background-color: $clr--accent;
+        @include mediaQuery{
+            @include grid(2);
+        }
+        
+    }
+    .slider__banner{
+        @include mediaQuery{
+             @include imgCover(500px,100%);
+        }   
+    }.slider__name{
+         display: none;
+        @include mediaQuery{
+
+        }
+                
+               
+        }
+}
+
+.info{
+    padding: 5rem 0;
+    &__wrapper{
+        background-color: $clr--dark;
+        padding: 9rem 0;
+        
+            h2, i, p{
+                color: $clr--light;
+                text-align: center;
+            }
+            h2{
+                text-transform: uppercase;
+                position: relative;
+                font-size: 2rem;
+                
+            }
+            h2::after{
+                content: "";
+                position: absolute;
+                left: 10rem;
+                bottom: -15px;
+                width: 50%;
+                height: 3px;
+                background-color: $clr--light;
+                opacity: .2;
+            }
+            p{
+                margin: 2rem 0;
+            }
+            i{
+                font-size: 6rem;
+                display: block;
+                margin: 4rem 0;
+            }
+                
+    }
+    &__card{
+            width: 100%;
+            margin-bottom: 7rem;
+            @include mediaQuery{
+                width: 100%;
+            }
+        }
+        &__cards{
+            @include mediaQuery{
+            @include grid(4);
+        } 
+        }
+    
+}
+
+.services{
+    padding: 5rem 0;
+    &__wrapper{
+        background-color: $clr--accent;
+        padding: 9rem 1rem;
+        
+        .slider__card{
+         @include mediaQuery{
+            @include grid(3);
+
+        }   
+        }
+        
+        h2{
+            color: $clr--light;
+            text-transform: uppercase;
+            position: relative;
+        }
+        h2::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -9px;
+            width: 100%;
+            height: 3px;
+            background-color: $clr--light;
+            opacity: .5;
+        }
+    }
+    .slider{
+        @include grid(1);
+    }
+    &__cards{
+
+        img{
+            margin: 2rem;
+            width: 80%;
+            
+        }
+        p{
+            color: $clr--light;
+            text-align: justify;
+            @include mediaQuery{
+                text-align:center;
+            }
+        }
+        
+    }
+}
+
+.about{
+    padding: 5rem 0;
+    background-color: $clr--light;
+    padding: 9rem 0;
+     max-width: 160rem;
+        margin: 0 auto;
+
+    
+    &__wrapper{
+        padding: 0 4rem;
+       
+    }
+    &__cards{
+         @include mediaQuery{
+            @include grid(2, 8rem);
+            margin: 0 5rem;
+            
+        }
+    }
+    &__card{
+        h2{
+            text-transform: uppercase;
+            position: relative;
+            margin: 2rem 0;
+            &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -9px;
+            width: 100%;
+            height: 3px;
+            background-color: $clr--dark;
+            opacity: .5;
+            
+        }
+        }
+        p{
+            text-align: justify;
+            position: relative;
+            margin: 5rem 0;
+            &:nth-child(2)::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -9px;
+                width: 100%;
+                height: 3px;
+                background-color: $clr--dark;
+                opacity: .5;
+            } 
+        }
+        
+    }
+    &__card2{
+            h2{
+                text-transform: uppercase;
+            position: relative;
+            margin: 2rem 0;
+            &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -9px;
+            width: 100%;
+            height: 3px;
+            background-color: $clr--dark;
+            opacity: .5;
+            
+        }
+            }
+            p{
+                text-align: justify;
+                position: relative;
+                margin: 5rem 0;
+                &:nth-child(3){
+                    color: $clr--accent;
+                }
+                &:nth-child(2)::after{
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -9px;
+                    width: 100%;
+                    height: 3px;
+                    background-color: $clr--dark;
+                    opacity: .5;
+                } 
+                &:nth-child(3)::after{
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -9px;
+                    width: 100%;
+                    height: 3px;
+                    background-color: $clr--dark;
+                    opacity: .5;
+                } 
+            }
+        }
+    
+}
+
+.cta{
+    padding: 5rem 0;
+    
+    &__wrapper{
+        background-color: $clr--dark;
+    padding: 9rem 0;
+    max-width: 100rem;
+    @include mediaQuery{
+        max-width: 160rem;
+    }
+    margin: 0 auto;
+        h2{
+            color: $clr--light;
+            text-transform: uppercase;
+            text-align: center;
+
+        }
+        i{
+            color: $clr--light;
+            margin: 1rem;
+            font-size: 3rem;
+
+        }
+        button{
+            margin: 0;
+        }
+        
+    }
+    &__request{
+        .calendar{
+            @include flex(center,center);
+        }
+    }
+    
+    
+}
+
+.footer{
+    padding: 9rem 0;
+    &__wrapper{
+        p{
+            color: $clr--dark;
+        }
+        i{
+            color: $clr--light;
+            margin: 0 .5rem;
+        }
+        li{
+            color: $clr--dark;
+        }
+    }
+    .address1{
+        margin: 3rem 0;
+    }
+    
+}
+
+}
+
+

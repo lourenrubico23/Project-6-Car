@@ -1,0 +1,45 @@
+@use '../abstract'  as *;
+
+.tns-controls{
+    bottom: 5rem;
+    left: 16.8rem;
+    position: absolute;
+    display: flex;
+    gap:2rem;
+    button { 
+        @include flex (center,center);
+        
+        background-color: $clr--light;
+        border-radius: 100%;
+        padding: 1rem;
+        font-size: 2rem;
+        color: $clr--accent;
+        z-index: 999;
+        
+    }
+}
+
+.tns-outer{
+    position: relative;
+
+    .tns-nav{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
+    
+    button{
+        margin: .5rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        border: none;
+        
+    }
+    & button.tns-nav-active{
+        background-color: $clr--accent;
+    }
+}
+
+}

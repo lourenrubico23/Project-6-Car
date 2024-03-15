@@ -1,0 +1,9 @@
+// 1. Variables - stores values that can be re-used.
+// 2. Partials - the _home.scss is the child of the main.scss
+// 3. @use "home" as *; - use this to connect the partials to css.
+// 4. Inheritance - parent with child inside.
+// 5. & - called ampersand, this combining parent with type selector.
+
+
+@use './page' as *;
+
